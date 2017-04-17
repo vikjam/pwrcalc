@@ -1,2 +1,2 @@
 # alpha-beta
-Power calculations with a GUI
+Power calculations in R that produce results familiar to Stata users.
