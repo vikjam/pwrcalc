@@ -10,6 +10,7 @@
 #' @param sig.level significance level; default is sig.level = 0.05
 #' @param power one minus the probability of type II error; default is power = 0.8
 #' @return returns an object with all the study parameters
+#' @importFrom stats qnorm
 #' @examples
 #' twomeans(m1 = 12, m2 = 16, sd = 5)
 twomeans <- function(m1        = NULL,
