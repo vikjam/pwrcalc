@@ -1,0 +1,11 @@
+Package: pwrcalc
+Title: An R power package familiar to Stata users.
+Version: 0.0.0.9000
+Authors@R: person("Vikram", "Jambulapati", email = "vikjam@mit.edu", role = c("aut", "cre"))
+Description: This R package generates power results that replicate Stata's `sampsi` and `power` commands.
+Depends: R (>= 3.3.2)
+Suggests:
+	ICC
+License: MIT License
+Encoding: UTF-8
+LazyData: true

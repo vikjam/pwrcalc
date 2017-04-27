@@ -1,0 +1,1 @@
+Search.setIndex({terms:{page:0,content:0,modul:0,search:0,index:0},objnames:{},titles:["Documentation for the R package pwrcalc"],objtypes:{},titleterms:{document:0,indic:0,pwrcalc:0,packag:0,tabl:0},envversion:43,filenames:["index"],objects:{}})
