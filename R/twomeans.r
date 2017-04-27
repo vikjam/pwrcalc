@@ -1,3 +1,4 @@
+#' Two-sample t-test power calculation
 #' 
 #' @param m1 Mean of a group 1 (e.g., the control-group)
 #' @param m2 Mean of a group 2 (e.g., the experimental-group)
