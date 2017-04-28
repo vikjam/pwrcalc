@@ -1,3 +1,4 @@
+#' Two-sample t-test power calculation
 #' 
 #' @param m1 Mean of a group 1 (e.g., the control-group)
 #' @param m2 Mean of a group 2 (e.g., the experimental-group)
@@ -9,6 +10,7 @@
 #' @param sig.level significance level; default is sig.level = 0.05
 #' @param power one minus the probability of type II error; default is power = 0.8
 #' @return returns an object with all the study parameters
+#' @importFrom stats qnorm
 #' @examples
 #' twomeans(m1 = 12, m2 = 16, sd = 5)
 twomeans <- function(m1        = NULL,
@@ -19,9 +21,9 @@ twomeans <- function(m1        = NULL,
                      sd1       = NULL,
                      sd2       = NULL,
                      sig.level = 0.05,
-                     power     = 0.80,
-                     kappa     = 1) {
+                     power     = 0.80) {
 
+    kappa = 1
     # Validate functions
     .check.twomeans(m1, m2, n1, n2, sd, sd1, sd2, sig.level, power, kappa)
 
@@ -34,7 +36,7 @@ twomeans <- function(m1        = NULL,
     beta = 1 - power
     n1 <- (1 + 1 / kappa) * (sd * (qnorm(1 - sig.level / 2) + qnorm(1 - beta)) /
           (m1 - m2))^2
-    n2 <- kappa * n1
+    n2 <- n1
 
     # Round the Ns
     n1 <- ceiling(n1)
