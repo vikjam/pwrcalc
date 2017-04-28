@@ -1,9 +1,10 @@
 # pwrcalc
 Power calculations in R that produce results familiar to Stata users.
 
-[![Travis-CI Build Status](https://travis-ci.org/vikjam/pwrcalc.svg?branch=master)](https://travis-ci.org/vikjam/pwrcalc)
+[![Travis-CI Build Status](https://travis-ci.org/vikjam/pwrcalc.svg?branch=master)](https://travis-ci.org/vikjam/pwrcalc) [![Documentation Status](https://readthedocs.org/projects/pwrcalc/badge/?version=latest)](http://pwrcalc.readthedocs.io/en/latest/?badge=latest)
 
-[![Read the Docs](https://readthedocs.org/projects/pwrcalc/?badge=latest)](https://readthedocs.org/projects/vikjam/powercalc/?version=latest)
+## Quick Start
+
 
 ### Installation
 
