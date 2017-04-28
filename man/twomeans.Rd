@@ -35,3 +35,4 @@ Two-sample t-test power calculation
 \examples{
 twomeans(m1 = 12, m2 = 16, sd = 5)
 }
+

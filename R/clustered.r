@@ -5,10 +5,10 @@
 #' @param obsclus Observations in clusters
 #' @param numclus Number of clusters
 #' @return returns an object with all the study parameters
+#' @export
 #' @importFrom magrittr %>%
 #' @examples
-#' library(pwrcalc)
-#' twomeans(m1 = 12, m2 = 16, sd = 5) %>% clustered(obsclus = 10)
+#' twomeans(m1 = 12, m2 = 16, sd = 5) %>% clustered(obsclus = 10, rho = 0.3)
 clustered <- function(unclustered, rho, obsclus = NULL, numclus = NULL) {
   if(all(is.null(obsclus), is.null(numclus))) {
     stop("Either obsclus or numclus must be specified.")
