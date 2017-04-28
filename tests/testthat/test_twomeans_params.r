@@ -1,4 +1,4 @@
-context("Parameters")
+context("twomeans parameters")
 
 # test_that("effect size or sample size", {
   # expect_equal(twomeans(kappa = 1),

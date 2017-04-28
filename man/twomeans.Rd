@@ -5,7 +5,7 @@
 \title{Two-sample t-test power calculation}
 \usage{
 twomeans(m1 = NULL, m2 = NULL, n1 = NULL, n2 = NULL, sd = NULL,
-  sd1 = NULL, sd2 = NULL, sig.level = 0.05, power = 0.8, kappa = 1)
+  sd1 = NULL, sd2 = NULL, sig.level = 0.05, power = 0.8)
 }
 \arguments{
 \item{m1}{Mean of a group 1 (e.g., the control-group)}

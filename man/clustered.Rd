@@ -4,26 +4,16 @@
 \alias{clustered}
 \title{Power calculations in an experiment with group clusters.}
 \usage{
-clustered(twomeansStruct, obsclus = NULL, numclus = NULL)
+clustered(unclustered, rho, obsclus = NULL, numclus = NULL)
 }
 \arguments{
-\item{m1}{Mean of a group 1 (e.g., the control-group)}
+\item{unclustered}{Results from twomeans not adjusting for clusters}
 
-\item{m2}{Mean of a group 2 (e.g., the experimental-group)}
+\item{rho}{Specifies the intraclass correlation coefficient}
 
-\item{n1}{Number of obs. in group 1 (e.g., the control-group)}
+\item{obsclus}{Observations in clusters}
 
-\item{n2}{Number of obs. in group 2 (e.g., the control-group)}
-
-\item{sd}{Standard deviation of each group, i.e., sd = sd1 = sd2}
-
-\item{sd1}{Standard deviation of a group 1 (e.g., the control-group)}
-
-\item{sd2}{Standard deviation of a group 2 (e.g., the experimental-group)}
-
-\item{sig.level}{significance level; default is sig.level = 0.05}
-
-\item{power}{one minus the probability of type II error; default is power = 0.8}
+\item{numclus}{Number of clusters}
 }
 \value{
 returns an object with all the study parameters
@@ -32,5 +22,6 @@ returns an object with all the study parameters
 Power calculations in an experiment with group clusters.
 }
 \examples{
+library(pwrcalc)
 twomeans(m1 = 12, m2 = 16, sd = 5) \%>\% clustered(obsclus = 10)
 }

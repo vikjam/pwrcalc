@@ -1,5 +1,5 @@
 Package: pwrcalc
-Title: An R power package familiar to Stata users.
+Title: An R power package familiar to Stata users
 Version: 0.0.0.9000
 Authors@R: person("Vikram", "Jambulapati", email = "vikjam@mit.edu", role = c("aut", "cre"))
 Description: This R package generates power results that replicate Stata's `sampsi` and `sampclus` commands.
