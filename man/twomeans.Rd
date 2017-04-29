@@ -4,8 +4,8 @@
 \alias{twomeans}
 \title{Two-sample t-test power calculation}
 \usage{
-twomeans(m1 = NULL, m2 = NULL, n1 = NULL, n2 = NULL, sd = NULL,
-  sd1 = NULL, sd2 = NULL, sig.level = 0.05, power = 0.8)
+twomeans(m1 = NULL, m2 = NULL, n1 = NULL, n2 = NULL, nratio = NULL,
+  sd = NULL, sd1 = NULL, sd2 = NULL, sig.level = 0.05, power = 0.8)
 }
 \arguments{
 \item{m1}{Mean of a group 1 (e.g., the control-group)}
@@ -15,6 +15,8 @@ twomeans(m1 = NULL, m2 = NULL, n1 = NULL, n2 = NULL, sd = NULL,
 \item{n1}{Number of obs. in group 1 (e.g., the control-group)}
 
 \item{n2}{Number of obs. in group 2 (e.g., the control-group)}
+
+\item{nratio}{Specify the ratio of group 1 to group 2.}
 
 \item{sd}{Standard deviation of each group, i.e., sd = sd1 = sd2}
 
