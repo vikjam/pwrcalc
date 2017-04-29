@@ -13,8 +13,15 @@ Using the R package [`devtools`](https://www.rstudio.com/products/rpackages/devt
 devtools::install_github('vikjam/pwrcalc')
 ```
 
+`devtools`includes a lot of extras functionality and dependencies. Alternatively, you just want to use [`ghit`](https://github.com/cloudyr/ghit). 
+```{r}
+ghit::install_github('vikjam/pwrcalc')
+```
+
+If you'd prefer installing the package without `devtools` or `ghit`, you can download the [latest release](https://github.com/vikjam/pwrcalc/releases) and [install the zipped packaged](http://outmodedbonsai.sourceforge.net/InstallingLocalRPackages.html).
+
 ### Usage
-Suppose we liked to detect the different two groups with a mean of 12 in one of the groups and 16 in the other. Let's suppose the standard deviation of each group is 5. We can calculate the sample size required with `pwrcalc`,
+Suppose we want to detect a difference of 4 between two groups (e.g., control and treatment). For example, we anticipate the control group mean being 12 and the treatment group mean being 16. In addition, suppose the standard deviation of each group is 5. We can calculate the sample size required with `pwrcalc`,
 
 ```{r}
 library(pwrcalc)
