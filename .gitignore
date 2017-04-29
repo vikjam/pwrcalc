@@ -25,7 +25,5 @@ vignettes/*.pdf
 *.knit.md
 .Rproj.user
 inst/doc
-
 # Mac files
 .DS_Store
-
