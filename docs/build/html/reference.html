@@ -26,7 +26,9 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Basic Parametric example" href="basic-parametric.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -35,6 +37,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="basic-parametric.html" title="Basic Parametric example"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">pwrcalc 0.0.0.9000 documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -78,7 +86,35 @@
 </tr>
 <tr class="field-even field"><th class="field-name">param power:</th><td class="field-body">one minus the probability of type II error, default is power = 0.8</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A power.htest object</td>
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A power.htest object with results in a structured list</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="clustered">
+<h2>clustered<a class="headerlink" href="#clustered" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt>
+<code class="descname">clustered</code><span class="sig-paren">(</span><em>unclustered</em>, <em>rho</em>, <em>obsclus = NULL</em>, <em>numclus = NULL)</em><span class="sig-paren">)</span></dt>
+<dd><p>Power calculations in an experiment with group clusters</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">params unclustered:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Results from twomeans not adjusting for clusters</td>
+</tr>
+<tr class="field-even field"><th class="field-name">params rho:</th><td class="field-body">Specifies the intraclass correlation coefficient</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">params obsclus:</th><td class="field-body">Number of observations in each cluster</td>
+</tr>
+<tr class="field-even field"><th class="field-name">params numclus:</th><td class="field-body">Maximum number of clusters</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A power.htest object with results in a structured list</td>
 </tr>
 </tbody>
 </table>
@@ -98,10 +134,17 @@
   <ul>
 <li><a class="reference internal" href="#">Reference</a><ul>
 <li><a class="reference internal" href="#twomeans">twomeans</a></li>
+<li><a class="reference internal" href="#clustered">clustered</a></li>
 </ul>
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="intro.html"
+                        title="previous chapter">Introduction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="basic-parametric.html"
+                        title="next chapter">Basic Parametric example</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -129,11 +172,17 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="basic-parametric.html" title="Basic Parametric example"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">pwrcalc 0.0.0.9000 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2017, Vikram Jambulapati.
+        &#169; Copyright 2017.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
     </div>
   </body>

@@ -20,4 +20,18 @@ twomeans
     :param sd2: Standard deviation of a group 2 (e.g., the experimental-group)
     :param sig.level: significance level; default is sig.level = 0.05
     :param power: one minus the probability of type II error, default is power = 0.8
-    :rtype: A power.htest object
+    :rtype: A power.htest object with results in a structured list
+
+---------
+clustered
+---------
+
+.. function:: clustered(unclustered, rho, obsclus = NULL, numclus = NULL))
+
+   Power calculations in an experiment with group clusters
+
+    :params unclustered: Results from twomeans not adjusting for clusters
+    :params rho: Specifies the intraclass correlation coefficient
+    :params obsclus: Number of observations in each cluster
+    :params numclus: Maximum number of clusters
+    :rtype: A power.htest object with results in a structured list

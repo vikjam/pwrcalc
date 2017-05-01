@@ -12,7 +12,7 @@ Power influences many design aspects, including what research questions to pursu
 Why Another Power Analysis Package for R?
 -----------------------------------------
 
-There exists a fine number of options for power calculations in R. From the default power_ command to pwr_ to samplesize_. However, economists love Stata. For users new to both Stata and power calculations, replicating the examples used by economists in power calculation lectures can be a bit tricky. This is the impetus for pwrcalc.
+There exists a fine number of options for power calculations in R. From the default power_ command to pwr_ to samplesize_. However, economists love Stata. For users new to both R and power calculations, replicating the examples used by economists in power calculation lectures can be a bit tricky. This is the impetus for pwrcalc.
 
 .. _power: https://stat.ethz.ch/R-manual/R-devel/library/stats/html/power.t.test.html
 .. _pwr: https://cran.r-project.org/web/packages/pwr/index.html
