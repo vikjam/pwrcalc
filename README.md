@@ -1,9 +1,8 @@
 # pwrcalc
 
-[![Join the chat at https://gitter.im/pwrcalc/Lobby](https://badges.gitter.im/pwrcalc/Lobby.svg)](https://gitter.im/pwrcalc/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Power calculations in R that produce results familiar to Stata users.
 
-[![Travis-CI Build Status](https://travis-ci.org/vikjam/pwrcalc.svg?branch=master)](https://travis-ci.org/vikjam/pwrcalc) [![Documentation Status](https://readthedocs.org/projects/pwrcalc/badge/?version=latest)](http://pwrcalc.readthedocs.io/en/latest/?badge=latest)
+[![Travis-CI Build Status](https://travis-ci.org/vikjam/pwrcalc.svg?branch=master)](https://travis-ci.org/vikjam/pwrcalc) [![Documentation Status](https://readthedocs.org/projects/pwrcalc/badge/?version=latest)](http://pwrcalc.readthedocs.io/en/latest/?badge=latest) [![Join the chat at https://gitter.im/pwrcalc/Lobby](https://badges.gitter.im/pwrcalc/Lobby.svg)](https://gitter.im/pwrcalc/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Quick Start
 Check out the [Read the Docs](http://pwrcalc.readthedocs.io/en/latest/?badge=latest) page for more detailed information.
