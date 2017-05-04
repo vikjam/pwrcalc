@@ -50,8 +50,8 @@ twomeans <- function(m1        = NULL,
     }
 
     beta = 1 - power
-    n1 <- (1 + 1 / nratio) * (sd * (qnorm(1 - sig.level / 2) + qnorm(1 - beta)) /
-          (m1 - m2))^2
+    n1 <- (1 + 1 / nratio) *
+          (sd * (qnorm(1 - sig.level / 2) + qnorm(1 - beta)) / (m1 - m2))^2
     n2 <- nratio * n1
 
     # Round the n's
@@ -81,6 +81,9 @@ twomeans <- function(m1        = NULL,
     # # Must specify effect size or sample size
     # if(all(is.null(m1), is.null(m1))) {
     #     stop("Must specify means (m1 and m2) or sample sizes of the groups (n1 and n2)")
+    # }
+    # if(!is.null(nratio) & (!is.null(n1) | !is.null(n2))) {
+    #     stop("Must specify either nratio and n1 or nratio and n2")
     # }
 
     # Non-negative standard deviation
@@ -115,4 +118,26 @@ twomeans <- function(m1        = NULL,
     }
 }
 
+.mde <- function(n1        = NULL,
+                 n2        = NULL,
+                 nratio    = NULL,
+                 sd        = NULL,
+                 sd1       = NULL,
+                 sd2       = NULL,
+                 sig.level = 0.05,
+                 power     = 0.80) {
+    n   <- n1 + n2
+    mde <- (0.842 + 1.96) * sqrt(1 / 0.25) * sqrt(1 / sample_n) * control_sd
+    return(mde)
+}
+
+#' Load quilt data
+#' 
+#' @param query A quilt query
+#' @param class Default is "data.frame". "data.table" returns a data.table object. "tibble" returns a tibble object.
+#' @importFrom data.table as.data.table
+#' @importFrom tibble as_tibble
+quilt.load(query = NULL, class = "data.table") {
+  ...
+}
 
