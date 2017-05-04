@@ -114,5 +114,3 @@ twomeans <- function(m1        = NULL,
         }
     }
 }
-
-

@@ -5,3 +5,4 @@ test_that("sampsi 12 16, sd(5) power(0.8)", {
 	expect_equal(calc$n1, 25)
 	expect_equal(calc$n2, 25)
 })
+
