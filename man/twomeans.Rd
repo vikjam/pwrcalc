@@ -16,20 +16,20 @@ twomeans(m1 = NULL, m2 = NULL, n1 = NULL, n2 = NULL, nratio = NULL,
 
 \item{n2}{Number of obs. in group 2 (e.g., the control-group)}
 
-\item{nratio}{Specify the ratio of group 1 to group 2.}
+\item{nratio}{Ratio of sample sizes, group 2 to group 1; default is nratio = 1, meaning equal group sizes}
 
 \item{sd}{Standard deviation of each group, i.e., sd = sd1 = sd2}
 
-\item{sd1}{Standard deviation of a group 1 (e.g., the control-group)}
+\item{sd1}{Standard deviation of a group 1 (e.g., the control group)}
 
-\item{sd2}{Standard deviation of a group 2 (e.g., the experimental-group)}
+\item{sd2}{Standard deviation of a group 2 (e.g., the experimental group)}
 
 \item{sig.level}{significance level; default is sig.level = 0.05}
 
 \item{power}{one minus the probability of type II error; default is power = 0.8}
 }
 \value{
-returns an object with all the study parameters
+Returns an object with all the study parameters
 }
 \description{
 Two-sample t-test power calculation
@@ -37,4 +37,3 @@ Two-sample t-test power calculation
 \examples{
 twomeans(m1 = 12, m2 = 16, sd = 5)
 }
-

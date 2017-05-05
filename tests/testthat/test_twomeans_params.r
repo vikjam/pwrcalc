@@ -9,9 +9,9 @@ context("twomeans parameters")
 
 test_that("non-negative values", {
   expect_error(twomeans(n1 = 0, n2 = 2, sd = 5),
-               "n1 and n2 must be positive")
+               "n1, n2, and nratio must be positive")
   expect_error(twomeans(n1 = 0, n2 = 2, sd = 5),
-               "n1 and n2 must be positive")
+               "n1, n2, and nratio must be positive")
   expect_error(twomeans(m1 = 12, m2 = 16, sd = 0),
                "sd must be positive")
 })

@@ -4,13 +4,13 @@
 #' @param m2 Mean of a group 2 (e.g., the experimental-group)
 #' @param n1 Number of obs. in group 1 (e.g., the control-group)
 #' @param n2 Number of obs. in group 2 (e.g., the control-group)
-#' @param nratio Specify the ratio of group 1 to group 2.
+#' @param nratio Ratio of sample sizes, group 2 to group 1; default is nratio = 1, meaning equal group sizes
 #' @param sd Standard deviation of each group, i.e., sd = sd1 = sd2
-#' @param sd1 Standard deviation of a group 1 (e.g., the control-group)
-#' @param sd2 Standard deviation of a group 2 (e.g., the experimental-group)
+#' @param sd1 Standard deviation of a group 1 (e.g., the control group)
+#' @param sd2 Standard deviation of a group 2 (e.g., the experimental group)
 #' @param sig.level significance level; default is sig.level = 0.05
 #' @param power one minus the probability of type II error; default is power = 0.8
-#' @return returns an object with all the study parameters
+#' @return Returns an object with all the study parameters
 #' @export
 #' @importFrom stats qnorm
 #' @examples
@@ -50,8 +50,10 @@ twomeans <- function(m1        = NULL,
     }
 
     beta = 1 - power
-    n1 <- (1 + 1 / nratio) * (sd * (qnorm(1 - sig.level / 2) + qnorm(1 - beta)) /
-          (m1 - m2))^2
+
+    n1 <- (sd1^2 + (sd2^2) / nratio) *
+          (qnorm(1 - sig.level / 2) + qnorm(1 - beta))^2 / ((m1 - m2)^2)
+
     n2 <- nratio * n1
 
     # Round the n's
@@ -78,10 +80,6 @@ twomeans <- function(m1        = NULL,
 }
 
 .check.twomeans <- function(m1, m2, n1, n2, nratio, sd, sd1, sd2, sig.level, power) {
-    # # Must specify effect size or sample size
-    # if(all(is.null(m1), is.null(m1))) {
-    #     stop("Must specify means (m1 and m2) or sample sizes of the groups (n1 and n2)")
-    # }
 
     # Non-negative standard deviation
     if(any(sd <= 0, sd1 <= 0, sd2 <= 0)) {
@@ -89,8 +87,8 @@ twomeans <- function(m1        = NULL,
     }
 
     # Non-negative observations
-    if(any(n1 <= 0, n2 <= 0)) {
-        stop("n1 and n2 must be positive")
+    if(any(n1 <= 0, n2 <= 0, nratio <= 0)) {
+        stop("n1, n2, and nratio must be positive")
     }
 
     # alpha and power must fall within the interval [0, 1]

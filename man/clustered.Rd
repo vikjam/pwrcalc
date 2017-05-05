@@ -24,4 +24,3 @@ Power calculations in an experiment with group clusters.
 \examples{
 twomeans(m1 = 12, m2 = 16, sd = 5) \%>\% clustered(obsclus = 10, rho = 0.3)
 }
-
