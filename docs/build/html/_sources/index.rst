@@ -11,7 +11,6 @@ Contents:
 
    intro
    reference
-   basic-parametric
 
 
 ==================

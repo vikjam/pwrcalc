@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Reference &#8212; pwrcalc 0.0.0.9000 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.0.9000',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Basic Parametric example" href="basic-parametric.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="basic-parametric.html" title="Basic Parametric example"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pwrcalc 0.0.0.9000 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="reference">
+<h1>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="twomeans">
+<h2>twomeans<a class="headerlink" href="#twomeans" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt>
+<code class="descname">twomeans</code><span class="sig-paren">(</span><em>m1 = NULL</em>, <em>m2 = NULL</em>, <em>n1 = NULL</em>, <em>n2 = NULL</em>, <em>nratio = NULL</em>, <em>sd = NULL</em>, <em>sd1 = NULL</em>, <em>sd2 = NULL</em>, <em>sig.level = 0.05</em>, <em>power = 0.80</em><span class="sig-paren">)</span></dt>
+<dd><p>Two-sample t-test power calculation</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param m1:</th><td class="field-body">Mean of a group 1 (e.g., the control-group)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param m2:</th><td class="field-body">Mean of a group 2 (e.g., the experimental-group)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param n1:</th><td class="field-body">Number of obs. in group 1 (e.g., the control-group)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param n2:</th><td class="field-body">Number of obs. in group 2 (e.g., the control-group)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param nratio:</th><td class="field-body">Specify the ratio of group 1 to group 2.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param sd:</th><td class="field-body">Standard deviation of each group, i.e., sd = sd1 = sd2</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param sd1:</th><td class="field-body">Standard deviation of a group 1 (e.g., the control-group)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param sd2:</th><td class="field-body">Standard deviation of a group 2 (e.g., the experimental-group)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param sig.level:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">significance level; default is sig.level = 0.05</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param power:</th><td class="field-body">one minus the probability of type II error, default is power = 0.8</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A power.htest object with results in a structured list</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="clustered">
+<h2>clustered<a class="headerlink" href="#clustered" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt>
+<code class="descname">clustered</code><span class="sig-paren">(</span><em>unclustered</em>, <em>rho</em>, <em>obsclus = NULL</em>, <em>numclus = NULL)</em><span class="sig-paren">)</span></dt>
+<dd><p>Power calculations in an experiment with group clusters</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">params unclustered:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Results from twomeans not adjusting for clusters</td>
+</tr>
+<tr class="field-even field"><th class="field-name">params rho:</th><td class="field-body">Specifies the intraclass correlation coefficient</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">params obsclus:</th><td class="field-body">Number of observations in each cluster</td>
+</tr>
+<tr class="field-even field"><th class="field-name">params numclus:</th><td class="field-body">Maximum number of clusters</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">A power.htest object with results in a structured list</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Reference</a><ul>
+<li><a class="reference internal" href="#twomeans">twomeans</a></li>
+<li><a class="reference internal" href="#clustered">clustered</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="intro.html"
+                        title="previous chapter">Introduction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="basic-parametric.html"
+                        title="next chapter">Basic Parametric example</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/reference.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="basic-parametric.html" title="Basic Parametric example"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pwrcalc 0.0.0.9000 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
+    </div>
+  </body>
+</html>

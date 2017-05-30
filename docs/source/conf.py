@@ -58,7 +58,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'pwrcalc'
-copyright = '2017, Vikram Jambulapati'
+copyright = '2017'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

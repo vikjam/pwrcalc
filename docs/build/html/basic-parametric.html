@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Basic Parametric example &#8212; pwrcalc 0.0.0.9000 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.0.9000',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Reference" href="reference.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="reference.html" title="Reference"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pwrcalc 0.0.0.9000 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="basic-parametric-example">
+<h1>Basic Parametric example<a class="headerlink" href="#basic-parametric-example" title="Permalink to this headline">¶</a></h1>
+<p>Load the included Balsakhi data set, which we&#8217;ll use to estimate the control mean.</p>
+<div class="highlight-r"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>pwrcalc<span class="p">)</span>
+data<span class="p">(</span>balsakhi<span class="p">)</span>
+control_mean <span class="o">&lt;-</span> <span class="kp">mean</span><span class="p">(</span><span class="kp">subset</span><span class="p">(</span>balsakhi<span class="o">$</span>post_totnorm<span class="p">,</span> balsakhi<span class="o">$</span>bal <span class="o">==</span> <span class="m">0</span><span class="p">),</span> na.rm <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+control_sd   <span class="o">&lt;-</span> sd<span class="p">(</span><span class="kp">subset</span><span class="p">(</span>balsakhi<span class="o">$</span>post_totnorm<span class="p">,</span> balsakhi<span class="o">$</span>bal <span class="o">==</span> <span class="m">0</span><span class="p">),</span> na.rm <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let&#8217;s inspect the results to make sure we&#8217;re all on the same page.</p>
+<div class="highlight-rconsole"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="kp">print</span><span class="p">(</span>control_mean<span class="p">)</span>
+<span class="go">[1] 0.4288781</span>
+<span class="gp">&gt; </span><span class="kp">print</span><span class="p">(</span>control_sd<span class="p">)</span>
+<span class="go">[1] 1.15142</span>
+</pre></div>
+</div>
+<p>Let&#8217;s say, based on other studies, that we expect an effect size of a tenth of a standard deviation. Now let&#8217;s calculate the sample size given that we know the likely effect size.</p>
+<div class="highlight-r"><div class="highlight"><pre><span></span>expected_effect <span class="o">&lt;-</span> control_sd <span class="o">/</span> <span class="m">10</span>
+treated_mean    <span class="o">&lt;-</span> expected_effect <span class="o">+</span> control_mean
+</pre></div>
+</div>
+<p>We can now calculate the sample size needed to test that hypothesis.</p>
+<div class="highlight-rconsole"><div class="highlight"><pre><span></span><span class="gp">&gt; </span>twomeans<span class="p">(</span>m1 <span class="o">=</span> control_mean<span class="p">,</span> m2 <span class="o">=</span> treated_mean<span class="p">,</span> sd <span class="o">=</span> control_sd<span class="p">)</span>
+
+<span class="go">     Two-sample t-test power calculation</span>
+
+<span class="go">             m1 = 0.4288781</span>
+<span class="go">             m2 = 0.5440201</span>
+<span class="go">             n1 = 1570</span>
+<span class="go">             n2 = 1570</span>
+<span class="go">      sig.level = 0.05</span>
+<span class="go">          power = 0.8</span>
+<span class="go">    alternative = two.sided</span>
+
+<span class="go">NOTE:</span>
+<span class="go">m1 and m2 are the means of group 1 and 2, respectively.</span>
+<span class="go">n1 and n2 are the obs. of group 1 and 2, respectively.</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="reference.html"
+                        title="previous chapter">Reference</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/basic-parametric.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="reference.html" title="Reference"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pwrcalc 0.0.0.9000 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
+    </div>
+  </body>
+</html>

@@ -11,9 +11,9 @@ clustered(unclustered, rho, obsclus = NULL, numclus = NULL)
 
 \item{rho}{Specifies the intraclass correlation coefficient}
 
-\item{obsclus}{Observations in clusters}
+\item{obsclus}{Number of observations in each cluster}
 
-\item{numclus}{Number of clusters}
+\item{numclus}{Maximum number of clusters}
 }
 \value{
 returns an object with all the study parameters
@@ -22,6 +22,5 @@ returns an object with all the study parameters
 Power calculations in an experiment with group clusters.
 }
 \examples{
-library(pwrcalc)
-twomeans(m1 = 12, m2 = 16, sd = 5) \%>\% clustered(obsclus = 10)
+twomeans(m1 = 12, m2 = 16, sd = 5) \%>\% clustered(obsclus = 10, rho = 0.3)
 }
