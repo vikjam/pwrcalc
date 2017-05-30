@@ -1,0 +1,66 @@
+---
+title: "pwrcalc"
+author: "Vikram Jambulapati"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{pwrcalc}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Intro
+
+## Why Power Analysis?
+
+Power influences many design aspects, including what research questions to pursue, how many treatment arms to employ, and even more fundamentally, whether or not to proceed with a potential research project. For example, it may be that a remedial education program boosts tests scores by 20 percent when comparing treatment and control groups, but due to limited power, the RCT is unable to detect this true effect (with 95% confidence). However, we can estimate whether a given design is likely to be able to detect a reasonable effect size ex ante, allowing us to properly manage partner expectations and make the most of limited research resources.
+
+## Why Another Power Analysis Package for R?
+
+There exists a fine number of options for power calculations in R. From the default [`power`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/power.t.test.html) command to [`pwr`](https://cran.r-project.org/web/packages/pwr/index.html) to [`samplesize`](https://cran.r-project.org/web/packages/samplesize/index.html). However, economists love Stata. For users new to both Stata and power calculations, replicating the examples used by economists in power calculation lectures can be a bit tricky. This is the impetus for `pwrcalc`.
+
+# Basic Parametric example
+
+Load the included Balsakhi data set, which we'll use to estimate the control mean.
+
+```{r}
+library(pwrcalc)
+data(balsakhi)
+control_mean <- mean(subset(balsakhi$post_totnorm, balsakhi$bal == 0), na.rm = TRUE)
+control_sd   <- sd(subset(balsakhi$post_totnorm, balsakhi$bal == 0), na.rm = TRUE)
+```
+Let's inspect the results to make sure we're all on the same page.
+
+```
+> print(control_mean)
+[1] 0.4288781
+> print(control_sd)
+[1] 1.15142
+```
+
+Let's say, based on other studies, that we expect an effect size of a tenth of a standard deviation. Now let's calculate the sample size given that we know the likely effect size.
+
+```{r}
+expected_effect <- control_sd / 10
+treated_mean    <- expected_effect + control_mean
+```
+
+We can now calculate the sample size needed to test that hypothesis.
+
+```
+> twomeans(m1 = control_mean, m2 = treated_mean, sd = control_sd)
+
+     Two-sample t-test power calculation 
+
+             m1 = 0.4288781
+             m2 = 0.5440201
+             n1 = 1570
+             n2 = 1570
+      sig.level = 0.05
+          power = 0.8
+    alternative = two.sided
+
+NOTE: 
+m1 and m2 are the means of group 1 and 2, respectively.
+n1 and n2 are the obs. of group 1 and 2, respectively.
+```
