@@ -10,8 +10,9 @@ Contents:
    :maxdepth: 2
 
    intro
+   installation
    reference
-   basic-parametric
+   practical-examples
 
 
 ==================

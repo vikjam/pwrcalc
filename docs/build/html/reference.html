@@ -27,8 +27,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Basic Parametric example" href="basic-parametric.html" />
-    <link rel="prev" title="Introduction" href="intro.html" /> 
+    <link rel="next" title="Practical Examples" href="practical-examples.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -38,10 +38,10 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="basic-parametric.html" title="Basic Parametric example"
+          <a href="practical-examples.html" title="Practical Examples"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="intro.html" title="Introduction"
+          <a href="installation.html" title="Installation"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">pwrcalc 0.0.0.9000 documentation</a> &#187;</li> 
       </ul>
@@ -93,6 +93,31 @@
 </div></blockquote>
 </dd></dl>
 
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-rconsole"><div class="highlight"><pre><span></span><span class="gp">&gt; </span>twomeans<span class="p">(</span>m1 <span class="o">=</span> <span class="m">12</span><span class="p">,</span> m2 <span class="o">=</span> <span class="m">16</span><span class="p">,</span> sd <span class="o">=</span> <span class="m">5</span><span class="p">)</span>
+
+<span class="go">     Two-sample t-test power calculation</span>
+
+<span class="go">             m1 = 12</span>
+<span class="go">             m2 = 16</span>
+<span class="go">             n1 = 25</span>
+<span class="go">             n2 = 25</span>
+<span class="go">      sig.level = 0.05</span>
+<span class="go">          power = 0.8</span>
+<span class="go">    alternative = two.sided</span>
+
+<span class="go">NOTE:</span>
+<span class="go">m1 and m2 are the means of group 1 and 2, respectively.</span>
+<span class="go">n1 and n2 are the obs. of group 1 and 2, respectively.</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="clustered">
 <h2>clustered<a class="headerlink" href="#clustered" title="Permalink to this headline">¶</a></h2>
@@ -121,6 +146,35 @@
 </div></blockquote>
 </dd></dl>
 
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-rconsole"><div class="highlight"><pre><span></span><span class="gp">&gt; </span>twomeans<span class="p">(</span>m1 <span class="o">=</span> <span class="m">12</span><span class="p">,</span> m2 <span class="o">=</span> <span class="m">16</span><span class="p">,</span> sd <span class="o">=</span> <span class="m">5</span><span class="p">)</span> <span class="o">%&gt;%</span> clustered<span class="p">(</span>obsclus <span class="o">=</span> <span class="m">10</span><span class="p">,</span> rho <span class="o">=</span> <span class="m">0.3</span><span class="p">)</span>
+
+<span class="go">     Two-sample t-test power calculation</span>
+
+<span class="go">                        m1 = 12</span>
+<span class="go">                        m2 = 16</span>
+<span class="go">           n1 (unadjusted) = 25</span>
+<span class="go">           n2 (unadjusted) = 25</span>
+<span class="go">                       rho = 0.3</span>
+<span class="go">       Average per cluster = 10</span>
+<span class="go">Mininum number of clusters = 19</span>
+<span class="go">             n1 (adjusted) = 93</span>
+<span class="go">             n2 (adjusted) = 93</span>
+<span class="go">                 sig.level = 0.05</span>
+<span class="go">                     power = 0.8</span>
+<span class="go">               alternative = two.sided</span>
+
+<span class="go">NOTE: m1 and m2 are the means of group 1 and 2, respectively.</span>
+<span class="go">n1 and n2 are the obs. of group 1 and 2, respectively.</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -140,11 +194,11 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="intro.html"
-                        title="previous chapter">Introduction</a></p>
+  <p class="topless"><a href="installation.html"
+                        title="previous chapter">Installation</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="basic-parametric.html"
-                        title="next chapter">Basic Parametric example</a></p>
+  <p class="topless"><a href="practical-examples.html"
+                        title="next chapter">Practical Examples</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -173,17 +227,17 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="basic-parametric.html" title="Basic Parametric example"
+          <a href="practical-examples.html" title="Practical Examples"
              >next</a> |</li>
         <li class="right" >
-          <a href="intro.html" title="Introduction"
+          <a href="installation.html" title="Installation"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">pwrcalc 0.0.0.9000 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6.
     </div>
   </body>
 </html>

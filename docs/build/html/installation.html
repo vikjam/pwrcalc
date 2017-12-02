@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Introduction &#8212; pwrcalc 0.0.0.9000 documentation</title>
+    <title>Installation &#8212; pwrcalc 0.0.0.9000 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -27,8 +27,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installation" href="installation.html" />
-    <link rel="prev" title="Documentation for the R package pwrcalc" href="index.html" /> 
+    <link rel="next" title="Reference" href="reference.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -38,10 +38,10 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="installation.html" title="Installation"
+          <a href="reference.html" title="Reference"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Documentation for the R package pwrcalc"
+          <a href="intro.html" title="Introduction"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">pwrcalc 0.0.0.9000 documentation</a> &#187;</li> 
       </ul>
@@ -52,15 +52,28 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="why-power-analysis">
-<h2>Why Power Analysis?<a class="headerlink" href="#why-power-analysis" title="Permalink to this headline">¶</a></h2>
-<p>Power influences many design aspects, including what research questions to pursue, how many treatment arms to employ, and even more fundamentally, whether or not to proceed with a potential research project. For example, it may be that a remedial education program boosts tests scores by 20 percent when comparing treatment and control groups, but due to limited power, the RCT is unable to detect this true effect (with 95% confidence). However, we can estimate whether a given design is likely to be able to detect a reasonable effect size ex ante, allowing us to properly manage partner expectations and make the most of limited research resources.</p>
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>Currently, <cite>pwrcalc</cite> has not been released on CRAN, so you must rely upon either an external package for installing <cite>pwrcalc</cite> or you can install the package manually.</p>
+<div class="section" id="ghit">
+<h2>ghit<a class="headerlink" href="#ghit" title="Permalink to this headline">¶</a></h2>
+<p><cite>ghit</cite> is a user-written package to install packages from GitHub, which is were <cite>pwrcalc</cite> lives. Run the following two-lines of code and you should be up and running with <cite>pwrcalc</cite>.</p>
+<div class="highlight-r"><div class="highlight"><pre><span></span>install.packages<span class="p">(</span><span class="s">&#39;ghit&#39;</span><span class="p">)</span>
+ghit<span class="o">::</span>install_github<span class="p">(</span><span class="s">&#39;vikjam/pwrcalc&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="why-another-power-analysis-package-for-r">
-<h2>Why Another Power Analysis Package for R?<a class="headerlink" href="#why-another-power-analysis-package-for-r" title="Permalink to this headline">¶</a></h2>
-<p>There exists a fine number of options for power calculations in R. From the default <a class="reference external" href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/power.t.test.html">power</a> command to <a class="reference external" href="https://cran.r-project.org/web/packages/pwr/index.html">pwr</a> to <a class="reference external" href="https://cran.r-project.org/web/packages/samplesize/index.html">samplesize</a>. However, economists love Stata. For users new to both R and power calculations, replicating the examples used by economists in power calculation lectures can be a bit tricky. This is the impetus for pwrcalc.</p>
+</div>
+<div class="section" id="devtools">
+<h2>devtools<a class="headerlink" href="#devtools" title="Permalink to this headline">¶</a></h2>
+<p>Alternatively, <cite>devtools</cite> is another user-written package that allows you to install packages from GitHub. <cite>devtools</cite> mainly helps users create R packages, so you&#8217;ll get a lot of other tools that come along with <cite>devtools</cite>.</p>
+<div class="highlight-r"><div class="highlight"><pre><span></span>install.packages<span class="p">(</span><span class="s">&#39;devtools&#39;</span><span class="p">)</span>
+devtools<span class="o">::</span>install_github<span class="p">(</span><span class="s">&#39;vikjam/pwrcalc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="manual-installation">
+<h2>Manual installation<a class="headerlink" href="#manual-installation" title="Permalink to this headline">¶</a></h2>
+<p>Finally, if neither of the previous installations options work for you. You can download the latest <a class="reference external" href="https://github.com/vikjam/pwrcalc/releases">release</a> from GitHub. Download the file with the extensions <cite>.tar.gz</cite>. And then use these <a class="reference external" href="http://outmodedbonsai.sourceforge.net/InstallingLocalRPackages.html">instructions</a> to install the downloaded file.</p>
 </div>
 </div>
 
@@ -72,23 +85,24 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Introduction</a><ul>
-<li><a class="reference internal" href="#why-power-analysis">Why Power Analysis?</a></li>
-<li><a class="reference internal" href="#why-another-power-analysis-package-for-r">Why Another Power Analysis Package for R?</a></li>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#ghit">ghit</a></li>
+<li><a class="reference internal" href="#devtools">devtools</a></li>
+<li><a class="reference internal" href="#manual-installation">Manual installation</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">Documentation for the R package pwrcalc</a></p>
+  <p class="topless"><a href="intro.html"
+                        title="previous chapter">Introduction</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="installation.html"
-                        title="next chapter">Installation</a></p>
+  <p class="topless"><a href="reference.html"
+                        title="next chapter">Reference</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/intro.rst.txt"
+      <li><a href="_sources/installation.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -113,10 +127,10 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="installation.html" title="Installation"
+          <a href="reference.html" title="Reference"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Documentation for the R package pwrcalc"
+          <a href="intro.html" title="Introduction"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">pwrcalc 0.0.0.9000 documentation</a> &#187;</li> 
       </ul>
