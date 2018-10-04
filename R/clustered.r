@@ -48,7 +48,7 @@ clustered <- function(unclustered, rho, obsclus = NULL, numclus = NULL) {
                    "n2 (unadjusted)"            = unclustered$n2,
                    rho                          = rho,
                    "Average per cluster"        = obsclus,
-                   "Mininum number of clusters" = numclus,
+                   "Minimum number of clusters" = numclus,
                    "n1 (adjusted)"              = n1clus,
                    "n2 (adjusted)"              = n2clus,
                    sig.level                    = unclustered$sig.level,
