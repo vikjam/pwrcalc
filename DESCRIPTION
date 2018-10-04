@@ -5,7 +5,7 @@ Authors@R: person("Vikram", "Jambulapati", email = "vikjam@mit.edu", role = c("a
 Description: This R package generates power results that replicate Stata's
     `sampsi` and `sampclus` commands.
 Depends:
-    R (>= 3.3.2),
+    R (>= 3.5.0),
     magrittr
 Suggests:
     ICC,
