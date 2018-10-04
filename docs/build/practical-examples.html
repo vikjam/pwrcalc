@@ -1,0 +1,201 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Practical Examples &#8212; pwrcalc 0.0.0.9000 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Reference" href="reference.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="reference.html" title="Reference"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pwrcalc 0.0.0.9000 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="practical-examples">
+<h1>Practical Examples<a class="headerlink" href="#practical-examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="two-sample-t-test">
+<h2>Two sample t-test<a class="headerlink" href="#two-sample-t-test" title="Permalink to this headline">¶</a></h2>
+<p>Load the included Balsakhi data set, which we’ll use to estimate the control mean.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>pwrcalc<span class="p">)</span>
+data<span class="p">(</span>balsakhi<span class="p">)</span>
+control_data <span class="o">&lt;-</span> balsakhi<span class="p">[</span><span class="kp">which</span><span class="p">(</span>balsakhi<span class="o">$</span>bal <span class="o">==</span> <span class="m">0</span><span class="p">),</span> <span class="p">]</span>
+control_mean <span class="o">&lt;-</span> <span class="kp">mean</span><span class="p">(</span>control_data<span class="o">$</span>post_totnorm<span class="p">,</span> na.rm <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+control_sd   <span class="o">&lt;-</span> sd<span class="p">(</span>control_data<span class="o">$</span>post_totnorm<span class="p">,</span> na.rm <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s inspect the results to make sure we’re all on the same page.</p>
+<div class="highlight-rconsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="kp">print</span><span class="p">(</span>control_mean<span class="p">)</span>
+<span class="go">[1] 0.4288781</span>
+<span class="gp">&gt; </span><span class="kp">print</span><span class="p">(</span>control_sd<span class="p">)</span>
+<span class="go">[1] 1.15142</span>
+</pre></div>
+</div>
+<p>Let’s say, based on other studies, that we expect an effect size of a tenth of a standard deviation. Now let’s calculate the sample size for our anticipated effect size.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span>expected_effect <span class="o">&lt;-</span> control_sd <span class="o">/</span> <span class="m">10</span>
+treated_mean    <span class="o">&lt;-</span> control_mean <span class="o">+</span> expected_effect
+</pre></div>
+</div>
+<p>We can now calculate the sample size needed to test that hypothesis at the significance level of 0.05 and power of 0.8.</p>
+<div class="highlight-rconsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span>twomeans<span class="p">(</span>m1 <span class="o">=</span> control_mean<span class="p">,</span> m2 <span class="o">=</span> treated_mean<span class="p">,</span> sd <span class="o">=</span> control_sd<span class="p">)</span>
+
+<span class="go">     Two-sample t-test power calculation</span>
+
+<span class="go">             m1 = 0.4288781</span>
+<span class="go">             m2 = 0.5440201</span>
+<span class="go">             n1 = 1570</span>
+<span class="go">             n2 = 1570</span>
+<span class="go">      sig.level = 0.05</span>
+<span class="go">          power = 0.8</span>
+<span class="go">    alternative = two.sided</span>
+
+<span class="go">NOTE:</span>
+<span class="go">m1 and m2 are the means of group 1 and 2, respectively.</span>
+<span class="go">n1 and n2 are the obs. of group 1 and 2, respectively.</span>
+</pre></div>
+</div>
+<p>Now imagine we anticipate an effect half as large as the previous example. In particular, we now expect 1/20 of a standard deviation.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span>smaller_expected_effect <span class="o">&lt;-</span> control_sd <span class="o">/</span> <span class="m">20</span>
+smaller_treated_mean    <span class="o">&lt;-</span> control_mean <span class="o">+</span> smaller_expected_effect
+</pre></div>
+</div>
+<div class="highlight-rconsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span>twomeans<span class="p">(</span>m1 <span class="o">=</span> control_mean<span class="p">,</span> m2 <span class="o">=</span> smaller_treated_mean<span class="p">,</span> sd <span class="o">=</span> control_sd<span class="p">)</span>
+
+<span class="go">     Two-sample t-test power calculation</span>
+
+<span class="go">             m1 = 0.4288781</span>
+<span class="go">             m2 = 0.4864491</span>
+<span class="go">             n1 = 6280</span>
+<span class="go">             n2 = 6280</span>
+<span class="go">      sig.level = 0.05</span>
+<span class="go">          power = 0.8</span>
+<span class="go">    alternative = two.sided</span>
+
+<span class="go">NOTE:</span>
+<span class="go">m1 and m2 are the means of group 1 and 2, respectively.</span>
+<span class="go">n1 and n2 are the obs. of group 1 and 2, respectively.</span>
+</pre></div>
+</div>
+<p>Notice now we need four times as many observations as the previous example.</p>
+</div>
+<div class="section" id="two-sample-t-test-with-group-clusters">
+<h2>Two sample t-test with group clusters<a class="headerlink" href="#two-sample-t-test-with-group-clusters" title="Permalink to this headline">¶</a></h2>
+<p>Many designs randomize at the group level instead of at the individual level. For such designs, we need to adjust our power calculations so that they incorporate the fact that individuals within the same group may be subject to similar shocks, and thereby have correlated outcomes. Duflo et al. presents a modified parametric approach, which takes into account the intra-cluster correlation (ICC) that arises from randomization at the group level.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>ICC<span class="p">)</span>
+icc_sample <span class="o">&lt;-</span> control_data<span class="p">[</span><span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>control_data<span class="o">$</span>divid<span class="p">)</span> <span class="o">&amp;</span> <span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>control_data<span class="o">$</span>post_totnorm<span class="p">),</span> <span class="p">]</span>
+icc_sample<span class="o">$</span>divid <span class="o">=</span> <span class="kp">as.factor</span><span class="p">(</span>icc_sample<span class="o">$</span>divid<span class="p">)</span>
+icc <span class="o">&lt;-</span> ICCest<span class="p">(</span>divid<span class="p">,</span> post_totnorm<span class="p">,</span> data <span class="o">=</span> icc_sample<span class="p">)</span>
+rho <span class="o">&lt;-</span> icc<span class="o">$</span>ICC
+</pre></div>
+</div>
+<div class="highlight-rconsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span>twomeans<span class="p">(</span>m1 <span class="o">=</span> control_mean<span class="p">,</span> m2 <span class="o">=</span> treated_mean<span class="p">,</span> sd <span class="o">=</span> control_sd<span class="p">)</span> <span class="o">%&gt;%</span> clustered<span class="p">(</span>obsclus <span class="o">=</span> <span class="m">10</span><span class="p">,</span> rho <span class="o">=</span> <span class="m">0.3</span><span class="p">)</span>
+
+<span class="go">     Two-sample t-test power calculation</span>
+
+<span class="go">                        m1 = 0.4288781</span>
+<span class="go">                        m2 = 0.5440201</span>
+<span class="go">           n1 (unadjusted) = 1570</span>
+<span class="go">           n2 (unadjusted) = 1570</span>
+<span class="go">                       rho = 0.3</span>
+<span class="go">       Average per cluster = 10</span>
+<span class="go">Minimum number of clusters = 1162</span>
+<span class="go">             n1 (adjusted) = 5809</span>
+<span class="go">             n2 (adjusted) = 5809</span>
+<span class="go">                 sig.level = 0.05</span>
+<span class="go">                     power = 0.8</span>
+<span class="go">               alternative = two.sided</span>
+
+<span class="go">NOTE:</span>
+<span class="go">- m1 and m2 are the means of group 1 and 2, respectively.</span>
+<span class="go">- n1 (unadjusted) and n2 (unadjusted) are the obs. of group 1 and 2 ignoring clustering.</span>
+<span class="go">- n1 (adjusted) and n2 (adjusted) are the obs. of group 1 and 2 adjusting for clustering.</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Practical Examples</a><ul>
+<li><a class="reference internal" href="#two-sample-t-test">Two sample t-test</a></li>
+<li><a class="reference internal" href="#two-sample-t-test-with-group-clusters">Two sample t-test with group clusters</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="reference.html"
+                        title="previous chapter">Reference</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/practical-examples.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="reference.html" title="Reference"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pwrcalc 0.0.0.9000 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>
