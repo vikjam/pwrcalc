@@ -70,7 +70,7 @@ clustered
                n2 (unadjusted) = 25
                            rho = 0.3
            Average per cluster = 10
-    Mininum number of clusters = 19
+    minimum number of clusters = 19
                  n1 (adjusted) = 93
                  n2 (adjusted) = 93
                      sig.level = 0.05

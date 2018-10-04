@@ -105,7 +105,7 @@ Many designs randomize at the group level instead of at the individual level. Fo
                n2 (unadjusted) = 1570
                            rho = 0.3
            Average per cluster = 10
-    Mininum number of clusters = 1162
+    minimum number of clusters = 1162
                  n1 (adjusted) = 5809
                  n2 (adjusted) = 5809
                      sig.level = 0.05
