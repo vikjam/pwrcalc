@@ -14,9 +14,10 @@ Using the R package [`devtools`](https://www.rstudio.com/products/rpackages/devt
 devtools::install_github('vikjam/pwrcalc')
 ```
 
-`devtools`includes a lot of extras functionality and dependencies. Alternatively, you just want to use [`ghit`](https://github.com/cloudyr/ghit). 
+`devtools`includes a lot of extras functionality and dependencies. Alternatively, you just want to use [`remotes`](https://github.com/r-lib/remotes). 
 ```{r}
-ghit::install_github('vikjam/pwrcalc')
+install.packages("remotes")
+remotes::install_github('vikjam/pwrcalc')
 ```
 
 If you'd prefer installing the package without `devtools` or `ghit`, you can download the [latest release](https://github.com/vikjam/pwrcalc/releases) and [install the zipped packaged](http://outmodedbonsai.sourceforge.net/InstallingLocalRPackages.html).
