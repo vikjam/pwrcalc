@@ -1,4 +1,4 @@
-# pwrcalc
+# pwrcalc <a href="https://dplyr.tidyverse.org"><img src="man/figures/logo.png" align="right" height="138" /></a>
 
 Power calculations in R that produce results familiar to Stata users.
 
